@@ -1,0 +1,59 @@
+@import '@/assets/variables.scss';
+
+:root:root {
+  --van-button-primary-background: #00a8e8;
+  --van-button-primary-border-color: #00a8e8;
+  --van-base-font: "Raleway", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  color: $black;
+  font-weight: $fw-400;
+  font-size: $fs-16;
+  font-style: normal;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.van-button {
+  transition: $transition !important;
+}
+
+.van-button--primary {
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+
+.van-button__text {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

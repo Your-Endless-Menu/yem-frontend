@@ -4,28 +4,31 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueCookies from 'vue-cookies'
-import 'vant/lib/index.css';
+import 'vant/lib/index.css'
 
-import { Locale } from 'vant';
-import enUS from 'vant/es/locale/lang/en-US';
+import { Locale } from 'vant'
+import enUS from 'vant/es/locale/lang/en-US'
 import axios from 'axios'
+import { VueQueryPlugin } from '@tanstack/vue-query'
 
-Locale.use('en-US', enUS);
+Locale.use('en-US', enUS)
 
 const app = createApp(App)
 
 axios.interceptors.request.use(
-  function(config) {
-    config.withCredentials = true;
-    return config;
+  function (config) {
+    config.withCredentials = true
+    return config
   },
-  function(error) {
-    return Promise.reject(error);
+  function (error) {
+    return Promise.reject(error)
   }
-);
+)
 
 app.use(router)
 
 app.use(VueCookies)
+
+app.use(VueQueryPlugin)
 
 app.mount('#app')
